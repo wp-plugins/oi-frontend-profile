@@ -7,7 +7,7 @@ Stable tag: 1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html 
 
-This plugin disallow users going to the backend. They can manage theme prifile on the frontend page.
+This plugin disallow users going to the backend. They can manage theme profile on the frontend page.
 
 == Description ==
 
