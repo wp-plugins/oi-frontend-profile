@@ -1,0 +1,84 @@
+.oifrontendprofile * {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.oifrontendprofile .row, .oifrontendprofile .col-md-6, .oifrontendprofile .col-md-12, .oifrontendprofile form, .oifrontendprofile div, .oifrontendprofile label {
+margin: 0;
+padding: 0;
+border: 0;
+font-size: 100%;
+vertical-align: baseline;
+}
+
+.oifrontendprofile .form-group {
+	margin-bottom: 15px;
+}
+
+.oifrontendprofile .form-control {
+	display: block;
+	width: 100%;
+	height: 34px;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #555;
+	background-color: #FFF;
+	background-image: none;
+	border: 1px solid #CCC;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+	-o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+.oifrontendprofile textarea.form-control {
+	min-height: 100px;
+}
+
+.oifrontendprofile .form-control[disabled], .oifrontendprofile .form-control[readonly], .oifrontendprofile fieldset[disabled] .form-control {
+	cursor: not-allowed;
+	background-color: #EEE;
+	opacity: 1;
+}
+
+.oifrontendprofile label {
+	display: inline-block;
+	max-width: 100%;
+	margin-bottom: 5px;
+	font-weight: 700;
+}
+
+.oifrontendprofile .row {
+	margin-right: -15px;
+	margin-left: -15px;
+}
+.oifrontendprofile .row:before, .oifrontendprofile .row:after {
+	display: table;
+	content: " ";
+	clear: both;
+}
+.oifrontendprofile .col-md-6, .oifrontendprofile .col-md-12 {
+	width: 50%;
+	float: left;
+	position: relative;
+	min-height: 1px;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+.oifrontendprofile .col-md-12 {
+	width: 100%;
+}
+
+.oifrontendprofile .alert {
+	padding: 5px;
+	margin-bottom: 15px;
+}
+.oifrontendprofile .text-success {background-color: #dff0d8;}
+.oifrontendprofile .text-danger {background-color: #f2dede;}
+
+.oifrontendprofile .pull-right {
+	float: right!important;
+}
