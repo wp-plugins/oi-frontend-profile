@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Oi Frontend Profile v1.0\n"
+"Project-Id-Version: Oi Frontend Profile v1.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2014-09-17 13:52:50+0000\n"
+"PO-Revision-Date: 2015-01-29 23:24:57+0000\n"
 "Last-Translator: admin <a@a.aa>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -20,93 +20,173 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Textdomain-Support: yes"
 
-#: oi-frontend-profile.php:128
+#: oi-frontend-profile.php:164
 #@ oifrontendprofile
 msgid "Your profile has been updated successfully."
 msgstr "Ваш профиль успешно обновлен."
 
-#: oi-frontend-profile.php:161
-#@ default
+#: oi-frontend-profile.php:197
+#@ oifrontendprofile
 msgid "Username"
-msgstr ""
+msgstr "Имя пользователя"
 
-#: oi-frontend-profile.php:161
+#: oi-frontend-profile.php:197
 #@ oifrontendprofile
 msgid "Usernames cannot be changed."
 msgstr "Имена пользователей не могут быть изменены."
 
-#: oi-frontend-profile.php:167
+#: oi-frontend-profile.php:203
 #@ oifrontendprofile
 msgid "First Name"
 msgstr "Имя"
 
-#: oi-frontend-profile.php:171
+#: oi-frontend-profile.php:207
 #@ oifrontendprofile
 msgid "Last Name"
 msgstr "Фамилия"
 
-#: oi-frontend-profile.php:177
+#: oi-frontend-profile.php:213
 #@ oifrontendprofile
 msgid "Nickname"
 msgstr "Ник"
 
-#: oi-frontend-profile.php:182
+#: oi-frontend-profile.php:222
 #@ oifrontendprofile
 msgid "Display name publicly as"
 msgstr "Отображать как"
 
-#: oi-frontend-profile.php:187
+#: oi-frontend-profile.php:228
 #@ oifrontendprofile
 msgid "Contact Info"
 msgstr "Контактная информация"
 
-#: oi-frontend-profile.php:189
+#: oi-frontend-profile.php:233
 #@ oifrontendprofile
 msgid "E-mail"
 msgstr ""
 
-#: oi-frontend-profile.php:193
+#: oi-frontend-profile.php:237
 #@ oifrontendprofile
 msgid "Website"
 msgstr "Сайт"
 
-#: oi-frontend-profile.php:199
+#: oi-frontend-profile.php:243
 #@ oifrontendprofile
 msgid "About Yourself"
 msgstr "О вас"
 
-#: oi-frontend-profile.php:200
+#: oi-frontend-profile.php:244
 #@ oifrontendprofile
 msgid "Biographical Info"
 msgstr "Краткая биография"
 
-#: oi-frontend-profile.php:213
+#: oi-frontend-profile.php:257
 #@ oifrontendprofile
 msgid "New Password"
 msgstr "Новый пароль"
 
-#: oi-frontend-profile.php:216
+#: oi-frontend-profile.php:260
 #@ oifrontendprofile
 msgid "Type your new password again."
 msgstr "Введите новый пароль еще раз."
 
-#: oi-frontend-profile.php:226
+#: oi-frontend-profile.php:270
 #@ oifrontendprofile
 msgid "Update Profile"
 msgstr "Обновить"
 
-#: oi-frontend-profile.php:200
+#: oi-frontend-profile.php:244
 #@ oifrontendprofile
 msgid "Share a little biographical information to fill out your profile. This may be shown publicly."
 msgstr "Поделитесь краткой информацией о себе. Эта информация может быть доступна публично."
 
-#: oi-frontend-profile.php:213
+#: oi-frontend-profile.php:257
 #@ oifrontendprofile
 msgid "If you would like to change the password type a new one. Otherwise leave this blank."
 msgstr "Если вы хотите сменить пароль введите новый пароль ниже. Либо оставьте поле пароля пустым."
 
-#: oi-frontend-profile.php:31
+#: oi-frontend-profile.php:47
 #@ oifrontendprofile
 msgid "Profile"
 msgstr "Профиль"
+
+#: inc/options.php:1
+#@ oifrontendprofile
+msgid "Profile page"
+msgstr "Страница профиля"
+
+#: inc/options.php:1
+#@ oifrontendprofile
+msgid "This page will be displayed when editing a profile"
+msgstr "Эта страница будет отображаться во время редактирования профиля"
+
+#: inc/options.php:1
+#@ oifrontendprofile
+msgid "This page MUST contain <b>[oi_frontend_profile]</b> shortcode"
+msgstr "Эта страница ДОЛЖНА содержать шорткод - <b>[oi_frontend_profile]</b>"
+
+#: inc/options.php:1
+#@ oifrontendprofile
+msgid "CSS"
+msgstr ""
+
+#: inc/options.php:1
+#@ oifrontendprofile
+msgid "Turn off plugin styles"
+msgstr "Отключить стили плагина"
+
+#: inc/options.php:1
+#@ oifrontendprofile
+msgid "If you want to use your own CSS or use Bootstrap(should be installed) CSS - check this option."
+msgstr "Если вы хотите использовать свои CSS или Botstrap(должен быть подключен) - поставьте галку"
+
+#: inc/options.php:1
+#@ oifrontendprofile
+msgid "Admin bar"
+msgstr "Панель администратора"
+
+#: inc/options.php:1
+#@ oifrontendprofile
+msgid "Hide"
+msgstr "Скрыть"
+
+#: inc/options.php:1
+#@ oifrontendprofile
+msgid "Hide the Admin bar from a frontend."
+msgstr "Скрыть панель администратора с фасада."
+
+#: inc/options.php:1
+#@ oifrontendprofile
+msgid "Settings saved"
+msgstr "Настройки сохранены"
+
+#: inc/options.php:1
+#@ oifrontendprofile
+msgid "Oi Frontend Profile"
+msgstr ""
+
+#: inc/options.php:1
+#@ oifrontendprofile
+msgid "Settings"
+msgstr "Настройки"
+
+#: inc/options.php:1
+#@ default
+msgid "Save Changes"
+msgstr ""
+
+#: inc/options.php:1
+#@ oifrontendprofile
+msgid "Backend"
+msgstr "Админка"
+
+#: inc/options.php:1
+#@ oifrontendprofile
+msgid "Redirect out of backend"
+msgstr "Перенаправлять из админки"
+
+#: inc/options.php:1
+#@ oifrontendprofile
+msgid "Disallow users to go to the backend."
+msgstr "Запретить пользователям заходить в админку и консоль"
 

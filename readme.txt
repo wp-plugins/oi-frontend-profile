@@ -2,6 +2,61 @@
 Contributors: Isaenko Alexei
 Tags: profile, user, login, page, frontend, front-end
 Requires at least: 3.2
+Tested up to: 4.1
+Stable tag: 1.3
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html 
+
+This plugin disallow users going to the backend. They can manage theme prifile on the frontend page.
+
+== Description ==
+
+This plugin will disallow users manage them  profile on the admin page. They will have to do that on the frontend page.
+Activate the plugin and it will create a profile page with a shortcode, and after that users will be redirected to that page if they would like to edit their profile. Also you able to use the shortcode on any page, just insert the shortcode - [oi_frontend_profile].
+
+You are able to change profile page and hide Admin bar from a frontend.
+
+Supported laguages:
+<ul>
+<li>English</li>
+<li>Russian</li>
+</ul>
+
+== Installation ==
+
+1. Upload `oi-frontend-profile` folder to the `/wp-content/plugins/` directory.
+2. Activate the plugin through the 'Plugins' menu in WordPress.
+
+ == Screenshots == 
+
+1. Profile page on a frontend, TwentyTwelve theme.
+
+== Changelog ==
+
+= 1.3 =
+* new: Option page added
+* new: Disabling CSS function added
+* new: Disabling Admin bar function added
+* new: Choosing Profile page function added
+* new: Redirecting from backend added
+* fix: Localisation missing removed
+= 1.2 =
+* new: Redirecting added
+* new: Profile page creating added
+* new: Russian language added
+= 1.1 =
+* new: Language support added.
+= 1.0 =
+* Initial release
+
+== Upgrade Notice ==
+
+= 1.2 =
+Some functions added.=======
+=== Oi Frontend Profile ===
+Contributors: Isaenko Alexei
+Tags: profile, user, login, page, frontend, front-end
+Requires at least: 3.2
 Tested up to: 4.0
 Stable tag: 1.2
 License: GPLv2 or later
@@ -45,4 +100,4 @@ Supported laguages:
 == Upgrade Notice ==
 
 = 1.2 =
-Some functions added.
+Some functions added.>>>>>>> .r1077238

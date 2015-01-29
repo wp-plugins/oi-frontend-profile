@@ -3,12 +3,14 @@
 Plugin Name: Oi Frontend Profile
 Plugin URI: http://www.easywebsite.ru/shop/plugins-wordpress/oi-frontend-profile
 Description: Plugin creates frontend profile page and redirects users from wp-admin/profile.php to this page. Form looks in Bootstrap style.
-Version: 1.0
+Version: 1.3
 Author: Alexei Isaenko
 Author URI: http://sh14.ru
 License: GPL2
 */
 require_once 'oi-nput.php';
+include 'inc/options.php';
+
 // localization
 function oifep_localization()
 {
@@ -22,9 +24,23 @@ function oifep_path()
 }
 
 register_activation_hook( __FILE__, 'create_profile_page' ); // хук при активации плагина
-function create_profile_page() // создание страницы профил€
+
+$options = get_oifrontendprofile(); // прячем админбар
+if( $options[ 'admin_bar_front_off' ] == 1 ){add_filter( 'show_admin_bar' , 'oifrontendprofile_admin_bar');}
+	
+function get_oifrontendprofile()
 {
-	$post_id = get_option( 'oifrontendprofile_page' );
+	return json_decode( get_option( 'oifrontendprofile' ), true );
+}
+function oifrontendprofile_admin_bar( $content )
+{
+	return ( current_user_can( 'administrator' ) ) ? $content : false;
+}
+
+function create_profile_page() // создание страницы профиля
+{
+	$options = get_oifrontendprofile();
+	$post_id = $options[ 'post_id' ];
 	if( $post_id == false || get_post_status( $post_id ) <> 'publish' ) // если страница еще не создана или не опубликована...
 	{
 		$page = array(
@@ -39,32 +55,44 @@ function create_profile_page() // создание страницы профил€
 		);
 
 		$post_id = wp_insert_post($page); // создаем ее
-		update_option( 'oifrontendprofile_page', $post_id ); // сохран€ем в настройках id страницы
+		$options[ 'post_id' ] = $post_id;
+		update_option( 'oifrontendprofile', json_encode( $options ) ); // сохраняем в настройках id страницы
 	}
 }
 
 function oifep_styles()
 {
-	wp_enqueue_style('oifep', oifep_path().'/css/style.css');
+	// если в настройках не выключен css, подгружаем стили
+	$options = get_oifrontendprofile();
+	$turn_off_css = $options[ 'turn_off_css' ];
+	if( $turn_off_css <> 1 ){wp_enqueue_style('oifep', oifep_path().'/css/style.css');}
 }
 add_action('wp_enqueue_scripts', 'oifep_styles');
 
-add_action ('init' , 'prevent_profile_access'); // инициализаци€ функции перенаправлени€
+add_action ('init' , 'prevent_profile_access'); // инициализация функции перенаправления
  
-function prevent_profile_access() // функци€ перенаправлени€
+function prevent_profile_access() // функция перенаправления
 {
-	if (current_user_can('manage_options')) return ''; // если пользователь может мен€ть настройки системы - ничего не делаем, иначе...
-	if (strpos ($_SERVER ['REQUEST_URI'] , 'wp-admin/profile.php' )) // перехватываем перехход в профиль
+	if (current_user_can('manage_options')) return ''; // если пользователь может менять настройки системы - ничего не делаем, иначе...
+	
+	if( strpos ( $_SERVER ['REQUEST_URI'] , 'wp-admin/' ) ) // перехватываем перехход в профиль
 	{
-		$id = get_option( 'oifrontendprofile_page' ); // получаем id страницы профил€ из настроек
-		if( get_post_status( $id ) == 'publish' ) // если она существует и опубликована...
+		$options = get_oifrontendprofile();
+		$backend_hide = $options[ 'backend_hide' ]; // получаем id страницы профиля из настроек
+		$post_id = $options[ 'post_id' ];
+		if( $backend_hide == 1 ){$backend_hide = strpos ($_SERVER ['REQUEST_URI'] , 'wp-admin/' );}
+	}
+	if (strpos ($_SERVER ['REQUEST_URI'] , 'wp-admin/profile.php' ) || $backend_hide ) // перехватываем перехход в профиль
+	{
+
+		if( get_post_status( $post_id ) == 'publish' ) // если она существует и опубликована...
 		{
-			$id = '/?p=' . $id; // формируем адрес редиректа на эту страницу
+			$post_id = '/?p=' . $post_id; // формируем адрес редиректа на эту страницу
 		}else
 		{
-			$id = ''; // иначе редирект будет без параметров(на главную)
+			$post_id = ''; // иначе редирект будет без параметров(на главную)
 		}
-		wp_redirect ( get_bloginfo('url') . $id ); // редирект
+		wp_redirect ( get_bloginfo( 'url' ) . $post_id ); // редирект
 	}
 }
 
@@ -166,7 +194,7 @@ function oi_frontend_profile()
 					
 					<div class="row">
 						<div class="col-xs-6 col-md-6 form-group">
-							<?=oinput(array('key'=>'user_login','before'=>__('Username'),'disabled'=>true,'value'=>esc_attr($profileuser->user_login),'hint'=>__('Usernames cannot be changed.','oifrontendprofile'),))?>
+							<?=oinput(array('key'=>'user_login','before'=>__('Username', 'oifrontendprofile'),'disabled'=>true,'value'=>esc_attr($profileuser->user_login),'hint'=>__('Usernames cannot be changed.','oifrontendprofile'),))?>
 						</div>
 					</div>
 					
@@ -216,7 +244,7 @@ function oi_frontend_profile()
 							<?=oinput(array('type'=>'textarea','key'=>'description','before'=>__('Biographical Info', 'oifrontendprofile'),'value'=>esc_attr($profileuser->description),'hint'=>__('Share a little biographical information to fill out your profile. This may be shown publicly.','oifrontendprofile')))?>
 						</div>
 					</div>
-
+					
 					<? do_action( 'show_user_profile', $profileuser ); ?>
 					<div class="row">
 					<?
@@ -236,7 +264,7 @@ function oi_frontend_profile()
 
 					<div class="row">
 						<div class="col-xs-12 col-md-12 form-group">
-							<?//=oinput(array('type'=>'hidden','key'=>'admin_bar_front','value'=>esc_attr($profileuser->admin_bar_front),))// пр€чет админбар при сохранении?>
+							<?=oinput(array('type'=>'hidden','key'=>'admin_bar_front','value'=>esc_attr($profileuser->admin_bar_front),))?>
 							<input type="hidden" name="action" value="update" />
 							<input type="hidden" name="user_id" id="user_id" value="1">
 							<button name="submit" id="submit" type="submit" class="btn btn-success pull-right"><?=__('Update Profile', 'oifrontendprofile')?></button>

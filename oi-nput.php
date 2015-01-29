@@ -26,7 +26,7 @@ function oinput($atts)
 		if($before){$before = '<label for="'.$key.'">'.$before.'</label>';}
 		if($placeholder){$placeholder = ' placeholder="'.$placeholder.'"';}
 		if($after){$after = '<label for="'.$key.'">'.$after.'</label>';}
-		if($hint){$hint = '<span class="help-block description">'.$hint.'</span>';}
+		if($hint){$hint = '<p class="help-block description">'.$hint.'</p>';}
 		if($class){$class = ' '.$class;}
 		if($style){$style = ' style="'.$style.'"';}
 		if($checked==true){$checked = ' checked';}else{$checked = '';}

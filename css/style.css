@@ -71,7 +71,12 @@ vertical-align: baseline;
 .oifrontendprofile .col-md-12 {
 	width: 100%;
 }
-
+@media screen and ( min-width: 400px )
+{
+	.oifrontendprofile input[name=pass1], .oifrontendprofile input[name=pass2] {
+		width: 250px;
+	}
+}
 .oifrontendprofile .alert {
 	padding: 5px;
 	margin-bottom: 15px;
